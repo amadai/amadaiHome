@@ -10,4 +10,4 @@
 2.番号リスト
 
 ---
-[リンク1]（http://yahoo.co.jp"タイトル"）
+[http://yahoo.co.jp"タイトル"]
