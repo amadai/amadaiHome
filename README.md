@@ -10,3 +10,4 @@
 2. 番号リスト
 
 [リンクのテキスト]: http://yahoo.co.jp "タイトル"
+[msn]:    http://search.msn.com/    "MSN Search"
