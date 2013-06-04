@@ -58,12 +58,13 @@
  [Flashのアクセシビリティについて考える 第2回　キー操作に対応する](http://gihyo.jp/design/serial/01/flash_accessibility/0002)
  
  →　 __【キーボードトラップ】__ の問題　→　SWFFocusクラスの使用  
- [FLASH17： Flash オブジェクトをキーボードで操作可能にして、キーボードトラップを回避する](http://waic.jp/docs/WCAG-TECHS/FLASH17.html)
+ [FLASH17： Flash オブジェクトをキーボードで操作可能にして、キーボードトラップを回避する](http://waic.jp/docs/WCAG-TECHS/FLASH17.html)  
+ [サンプル](http://test.flak.jp/amasaki/swffocus/)
  
  →　課題：ChromeとSafariのWindows版は非対応。JavaScriptを有効にする必要がある。
  
  * 必要に応じて、ユーザーが一時停止できるようにする 
- * ボタンに代替テキストを提供する 
+ * ボタンに代替テキストを提供する  
  [Flashのアクセシビリティについて考える 第3回　読み上げに配慮する](http://gihyo.jp/design/serial/01/flash_accessibility/0003)
 
 また、Flashを「依存するウェブコンテンツ技術」としない場合には、Flashが提供しているのと同じリンクをHTMLベースで提供しなければならない。  
@@ -80,6 +81,7 @@
 ---
 ## 4.今後の課題
  - HTML5 でのアクセシビリティ
+ 
  「セマンティック（構造の意味付け）」「WAI-ARIA（役割）」という仕様から、よりアクセシブルになるのでは。
 
 
@@ -94,6 +96,7 @@
  - 見本サイト
   * [富士通](http://pr.fujitsu.com/jp/news/2011/07/8.html)
   * [伸ばそう ICTメディアリテラシー - 総務省](http://www.soumu.go.jp/ict-media/)
+  * [【旧版】伸ばそう ICTメディアリテラシー - 総務省](http://test.flak.jp/amasaki/ict_old/)
  - 読み上げツール
   * [ACTF aDesigner](http://www.eclipse.org/actf/downloads/tools/aDesigner/index.php)
  - アクセシビリティチェック
