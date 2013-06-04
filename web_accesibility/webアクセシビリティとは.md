@@ -42,7 +42,7 @@
  * [富士通](http://pr.fujitsu.com/jp/news/2011/07/8.html)
  * [JIS X 8341-3:2010 達成基準7.2.4.1を満たす条件に関する意見募集の結果について](http://www.waic.jp/news/20130422.html)
 
-### ページタイトル（達成基準7.2.4.2） 
+### ページタイトル（達成基準7.2.4.2）
 ページタイトルは、そのウェブページの内容がわかるように記述しなければならない。  
 また、サイト名を併記することが推奨されている。  
  →　[下層ページのタイトル表記注意](http://www.soumu.go.jp/ict-media/internet/01.html)
@@ -53,13 +53,13 @@
  * サイト内検索
  * HOMEページ（トップページ）上に全ページへのリンク 
 
-### Flashコンテンツのアクセシビリティ確保 
-トップページで使用しているFlashについては、以下のような改善点がある。  
+### Flashコンテンツのアクセシビリティ確保
  * キーボードだけで操作できるようにする  
  [Flashのアクセシビリティについて考える 第2回　キー操作に対応する](http://gihyo.jp/design/serial/01/flash_accessibility/0002)
  
- →　【キーボードトラップ】の問題　→　SWFFocusクラスの使用  
- [FLASH17： Flash オブジェクトをキーボードで操作可能にして、キーボードトラップを回避する](http://waic.jp/docs/WCAG-TECHS/FLASH17.html)  
+ →　 __【キーボードトラップ】__ の問題　→　SWFFocusクラスの使用  
+ [FLASH17： Flash オブジェクトをキーボードで操作可能にして、キーボードトラップを回避する](http://waic.jp/docs/WCAG-TECHS/FLASH17.html)
+ 
  →　課題：ChromeとSafariのWindows版は非対応。JavaScriptを有効にする必要がある。
  
  * 必要に応じて、ユーザーが一時停止できるようにする 
@@ -78,17 +78,22 @@
  * [FLASH1： 非テキストオブジェクトに名前プロパティを設定する](http://waic.jp/docs/WCAG-TECHS/FLASH1.html)
 
 ---
-## 4.参考URL
+## 4.今後の課題
+ - HTML5 でのアクセシビリティ
+ 「セマンティック（構造の意味付け）」「WAI-ARIA（役割）」という仕様から、よりアクセシブルになるのでは。
+
+
+## 5.参考URL
  - W3C
   * [WCAG 2.0 実装方法集](http://waic.jp/docs/WCAG-TECHS/Overview.html#contents)
  - 技術解説
   * [Webアクセシビリティを理解し実践するためのポータルサイト、インフォアクシア](http://www.infoaxia.com/)
   * [Flashのアクセシビリティについて考える（gihyo.jp）](http://gihyo.jp/design/serial/01/flash_accessibility)
+  * [WAI-ARIAによるアクセシブルRIA（ThinkIT）](http://thinkit.co.jp/book/2008/08/27/161)
   * [アクセシビリティに配慮したFlashコンテンツ（富士通）](http://jp.fujitsu.com/accessibility/casestudy/pdpflash/)
- - webアクセシビリティに対応したサイト
-  * [伸ばそう ICTメディアリテラシー - 総務省](http://www.soumu.go.jp/ict-media/)
- - スキップリンクの見本
+ - 見本サイト
   * [富士通](http://pr.fujitsu.com/jp/news/2011/07/8.html)
+  * [伸ばそう ICTメディアリテラシー - 総務省](http://www.soumu.go.jp/ict-media/)
  - 読み上げツール
   * [ACTF aDesigner](http://www.eclipse.org/actf/downloads/tools/aDesigner/index.php)
  - アクセシビリティチェック
