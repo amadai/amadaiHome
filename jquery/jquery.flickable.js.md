@@ -1,6 +1,5 @@
 ﻿# jquery.flickable.js の紹介
 
-___
 
 ## 概要
  * jqueryプラグイン
@@ -8,7 +7,6 @@ ___
  * スマフォでも使える
  * __Android2.xにおける、`overflow:auto`が効かないバグにも対応可能__
  
- ___
  
 ## スクロールしたいとき
 
@@ -27,8 +25,7 @@ ___
  
  [DEMO](http://lagoscript.org/jquery/flickable/demo)
  
-___
-
+ 
 ## 参考URL
  * [配布元](http://lagoscript.org/jquery/flickable)
  * [jQuery.flickableがうまく動かないときの対処法](http://utatane.littlestar.jp/tut/archives/68)
