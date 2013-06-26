@@ -8,6 +8,10 @@
  * __Android2.xにおける、`overflow:auto`が効かないバグにも対応可能__
  
  
+## DEMO
+ [DEMO](http://lagoscript.org/jquery/flickable/demo)
+ 
+ 
 ## スクロールしたいとき
 
  →　ブロック要素に`overflow: scroll;` `overflow: auto;` などのスタイルを適用  
@@ -22,8 +26,6 @@
  →　自前のjsで実装しましょう。
  
  →　jquery.flickable.js のような便利なプラグインがあるよ。
- 
- [DEMO](http://lagoscript.org/jquery/flickable/demo)
  
  
 ## 参考URL
