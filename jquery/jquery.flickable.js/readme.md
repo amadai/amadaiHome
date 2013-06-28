@@ -2,20 +2,20 @@
 
 
 ## 概要
- * jqueryプラグイン
- * マウスのフリック操作でスマフォみたいにスクロールできるようになる
- * スマフォでも使える
+ * マウスのフリック操作でスマホみたいにスクロールできるようになるjqueryプラグイン
+ * スマホやIE6でも使える
  * __Android2.xにおける、`overflow:auto`が効かないバグにも対応可能__
  
  
 ## DEMO
- [DEMO](http://lagoscript.org/jquery/flickable/demo)
+ [配布元DEMO](http://lagoscript.org/jquery/flickable/demo)
  
  
-## スクロールしたいとき
+## Android2.xの overflow バグ
+ 
+### スクロールしたいとき
 
- →　ブロック要素に`overflow: scroll;` `overflow: auto;` などのスタイルを適用  
- &nbsp;
+ →　ブロック要素に`overflow: scroll;` `overflow: auto;` などのスタイルを適用
  
 ![overflowサンプル画像](./img/img01.png)
 
@@ -28,12 +28,24 @@
  →　jquery.flickable.js のような便利なプラグインがあるよ。
  
  
+## 注意点
+ jQuery1.6以上に対応していない
+ 
+  →　下記「参考URL」から対応版DL
+ 
 ## 個人的に困ったこと
 
  * スクロールする要素に設定したタッチイベントが起動しなくなった。
+ * スクロールする要素内に張ったリンクが上手く機能しない場合がある。
  
  →　jquery.flickable.js内で`event.preventDefault();`で後続の処理がキャンセルされていたため。
- →　今回は単純にコメントアウトで対応。（437, 467, 504行目）
+ 
+ 　→　単純にコメントアウト（433 463行目）
+ 
+ 　　→　Androidで画面全体がスクロールしてしまった。
+  
+ 　　　→　touchstart直後に座標を取得、touchend時にある一定距離以上動いてなければ  
+   タップとみなしてキャンセルしない。
  
  
 ## 参考URL

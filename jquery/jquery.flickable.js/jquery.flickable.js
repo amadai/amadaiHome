@@ -7,7 +7,7 @@
  * http://lagoscript.org
  */
 (function($, window, Math, undefined) {
-
+/////////
 	var flickable, 
 		document = window.document,
 
@@ -151,19 +151,19 @@
 				element.data('style.flickable', element.attr('style'));
 
 				// Copy styles onto content to keep layouts
-				$.each(this.layoutStyles, function(i, prop) {
-					var style = element.css(prop);
+				$.each(this.layoutStyles, function(i, proper) {
+					var style = element.css(proper);
 
-					self.content.css(prop, style);
+					self.content.css(proper, style);
 
-					if (prop === 'background-color') {
-						self.wrapper.css(prop, $.inArray(style, ['transparent', 'rgba(0, 0, 0, 0)']) >= 0 ? '#FFF' : style);
-					} else if (prop === 'width') {
-						element.css(prop, 'auto');
-					} else if (/^(padding-\w+|margin-\w+|border-\w+-width)$/.test(prop)) {
-						element.css(prop, 0);
-					} else if (/^(background-image|border-\w+-style)$/.test(prop)) {
-						element.css(prop, 'none');
+					if (proper === 'background-color') {
+						self.wrapper.css(proper, $.inArray(style, ['transparent', 'rgba(0, 0, 0, 0)']) >= 0 ? '#FFF' : style);
+					} else if (proper === 'width') {
+						element.css(proper, 'auto');
+					} else if (/^(padding-\w+|margin-\w+|border-\w+-width)$/.test(proper)) {
+						element.css(proper, 0);
+					} else if (/^(background-image|border-\w+-style)$/.test(proper)) {
+						element.css(proper, 'none');
 					}
 				});
 
@@ -179,15 +179,14 @@
 						element.css('position', 'relative');
 					}
 				}
-
+			
 				$(window).bind('unload.flickable', function() {
 					self.disable();
 				});
 
 			}
-
 			this.option(this.options);
-			this.activate();
+			this.activate();			
 		},
 
 		option: function(key, value) {
@@ -213,6 +212,7 @@
 		},
 
 		setOption: function(key, value) {
+		
 			var self = this,
 				refresh = false;
 
@@ -253,6 +253,7 @@
 					}
 					break;
 			}
+				
 			refresh && this.refresh();
 			return this;
 		},
@@ -321,25 +322,19 @@
 				_padding = $.extend({}, padding),
 				clientElement = document.compatMode === 'CSS1Compat' ? this.elementWrapper : this.element,
 				box = {};
-
 			width = content.width();
 			content.width('auto');
-
-			maxHeight = this.elementWrapper.attr('scrollHeight') - (_padding.height || 0) * 2;
-			maxWidth = this.elementWrapper.attr('scrollWidth') - (_padding.width || 0) * 2;
-
+			maxHeight = this.elementWrapper.prop('scrollHeight') - (_padding.height || 0) * 2;
+			maxWidth = this.elementWrapper.prop('scrollWidth') - (_padding.width || 0) * 2;
 			if (width > maxWidth) {
 				content.width(width);
 				maxWidth = content.outerWidth() + parseInt(content.css('margin-left')) + parseInt(content.css('margin-right'));
 			}
-
 			$.each({'Height':maxHeight, 'Width':maxWidth}, function(dimension, max) {
 				var _dimension = dimension.toLowerCase();
-
 				box[_dimension] = self.box[_dimension]();
-
 				// Attach paddings if element has scroll
-				padding[_dimension] = max > clientElement.attr('client' + dimension) && !self.noPadding ?
+				padding[_dimension] = max > clientElement.prop('client' + dimension) && !self.noPadding ?
 					Math.round(box[_dimension] / 2) : 0;
 			});
 
@@ -351,16 +346,16 @@
 			});
 			maxWidth = box.width > maxWidth ? box.width : maxWidth;
 
-			this.hasScroll.x = this.elementWrapper.attr('scrollWidth') > clientElement.attr('clientWidth');
-			this.hasScroll.y = this.elementWrapper.attr('scrollHeight') > clientElement.attr('clientHeight');
+			this.hasScroll.x = this.elementWrapper.prop('scrollWidth') > clientElement.prop('clientWidth');
+			this.hasScroll.y = this.elementWrapper.prop('scrollHeight') > clientElement.prop('clientHeight');
 
 			wrapperPosition = this.position(this.wrapper);
 
 			this.stretchPosition = {
 				top: wrapperPosition.top,
-				bottom: wrapperPosition.top + maxHeight - clientElement.attr('clientHeight'),
+				bottom: wrapperPosition.top + maxHeight - clientElement.prop('clientHeight'),
 				left: wrapperPosition.left,
-				right: wrapperPosition.left + maxWidth - clientElement.attr('clientWidth')
+				right: wrapperPosition.left + maxWidth - clientElement.prop('clientWidth')
 			};
 
 			this.sectionPostions = this.sections ? this.sections.map(function() {
@@ -377,6 +372,7 @@
 		},
 
 		scroll: function(x, y) {
+			$("#debug").text("x:"+x+" y:"+y);
 			var box = this.box;
 
 			x && box.scrollLeft(box.scrollLeft() + x);
@@ -434,7 +430,7 @@
 
 		clickHandler: function(event) {
 			if (this.preventDefaultClick) {
-				event.preventDefault();
+//				event.preventDefault();//コメントアウト　クリック対応
 				this.preventDefaultClick = false;
 			}
 		},
@@ -464,7 +460,7 @@
 					});
 
 				if (!(event.type === 'touchstart' ? specialNodesForTouch : specialNodes).test(event.target.nodeName.toLowerCase())) {
-					event.preventDefault();
+//					event.preventDefault();//コメントアウト　クリック対応
 				}
 			}
 		},
@@ -583,6 +579,13 @@
 			inertialVelocity.y *= 13;
 
 			this.inertia = setInterval(function() {
+				
+				if(inertialVelocity.x==-Infinity){
+					inertialVelocity.x = 0;
+				}
+				if(inertialVelocity.y==-Infinity){
+					inertialVelocity.y = 0;
+				}
 				if (options.disabled || !self.isScrolling() || self.trigger('flick') === false) {
 					inertialVelocity.x = 0;
 					inertialVelocity.y = 0;
@@ -807,8 +810,8 @@
 		elem = $(elem);
 
 		if ($.inArray(elem.css('overflow'), ['scroll', 'auto']) >= 0) {
-			return elem.attr('scrollWidth') > elem.attr('clientWidth') ||
-				elem.attr('scrollHeight') > elem.attr('clientHeight');
+			return elem.prop('scrollWidth') > elem.prop('clientWidth') ||
+				elem.prop('scrollHeight') > elem.prop('clientHeight');
 		}
 		return false;
 	}
